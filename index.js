@@ -66,19 +66,19 @@ async function displayPokemonIndex(){
 
 
             const pokeIHp = document.createElement("h3")
-            pokeIHp.textContent = ("NaN")
+            pokeIHp.textContent = (pokemonDetailData.stats["0"].base_stat)
             pokeIHp.className = ("deleteMe")
             const pokeIAtk = document.createElement("h3")
-            pokeIAtk.textContent = ("NaN")
+            pokeIAtk.textContent = (pokemonDetailData.stats["1"].base_stat)
             pokeIAtk.className = ("deleteMe")
             const pokeIDef = document.createElement("h3")
-            pokeIDef.textContent = ("NaN")
+            pokeIDef.textContent = (pokemonDetailData.stats["2"].base_stat)
             pokeIDef.className = ("deleteMe")
             const pokeISpcAtk = document.createElement("h3")
-            pokeISpcAtk.textContent = (" NaN")
+            pokeISpcAtk.textContent = (pokemonDetailData.stats["3"].base_stat)
             pokeISpcAtk.className = ("deleteMe")
             const pokeISpcDef = document.createElement("h3")
-            pokeISpcDef.textContent = (" NaN")
+            pokeISpcDef.textContent = (pokemonDetailData.stats["4"].base_stat)
             pokeISpcDef.className = ("deleteMe")
 
             document.getElementById("div-i-hp").append(pokeIHp)
@@ -99,12 +99,7 @@ async function displayPokemonIndex(){
 }
 
 
-function removeElementsByClassName(className){
-    const elements = document.getElementsByClassName(className);
-    while (elements.length > 0){
-        elements[0].parentNode.removeChild(elements[0])
-    }
-}
+
 
 divNext.addEventListener("click", nextTest);
 divLast.addEventListener("click", lastTest);
@@ -128,7 +123,26 @@ function lastTest(){
     console.log(clickNumber)  
 }
 
+function removeElementsByClassName(className){
+    const elements = document.getElementsByClassName(className);
+    while (elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0])
+    }
+}
+
 
 displayPokemonIndex()
 
 console.log(idArray)
+
+
+
+/* TO DO:  
+1. Search field bottom right to search for specific pokemon number
+2. types next to name
+3. sounds?
+4. change pokedex color scheme button
+5. close/open pokedex animation?
+6.
+7.
+*/

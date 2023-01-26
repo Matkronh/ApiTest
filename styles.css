@@ -16,6 +16,8 @@
     top: 288px;
     width: 202px;
     height: 144px;
+    background-color: rgba(0, 255, 60, 0.649);
+    border-radius: 15px;
 }
 
 .pokemon-profile{
