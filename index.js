@@ -10,10 +10,9 @@ async function getApi(url){
 
 async function displayPokemonIndex(){
     
-    const pokemonData = await getApi("https://pokeapi.co/api/v2/pokemon/")
+    const pokemonData = await getApi("https://pokeapi.co/api/v2/pokemon/?offset=149&limit=1")
 
         pokemonData.results.forEach(async pokemon => {
-            idStamp = idStamp + 1
             const pokemonDetailData = await getApi(pokemon.url)
             const pokeFrameElement = document.createElement("div")
             pokeFrameElement.setAttribute("id", pokemon.name)
