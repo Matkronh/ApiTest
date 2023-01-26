@@ -1,1 +1,111 @@
+#pokedexx{
+    width: 1000px;
+    height: 800px;
+    position: absolute;
+}
 
+#pokedex-id{
+    height: auto;
+    width: 900px;
+    position: absolute;
+}
+
+#div-1{
+    position: absolute;
+    left: 188px;
+    top: 288px;
+    width: 202px;
+    height: 144px;
+}
+
+.pokemon-profile{
+    height: inherit;
+    width: inherit;
+}
+
+
+#icon-size{
+    text-align: center;
+    margin-top: 11px;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+}
+
+/*  Next / Last Buttons  */
+
+#div-last{
+    position: absolute;
+    top: 466px;
+    left: 554px;
+    width: 45px;
+    height: 40px;
+}
+
+#div-next:hover{
+    background-color: rgba(61, 61, 61, 0.608);
+    border-radius: 5px;
+}
+
+#div-next{
+    position: absolute;
+    top: 466px;
+    left: 602px;
+    width: 45px;
+    height: 40px;
+}
+
+#div-last:hover{
+    background-color: rgba(61, 61, 61, 0.608);
+    border-radius: 5px;
+}
+
+#div-name{
+    position: absolute;
+    width: 236px;
+    height: 80px;
+    top: 250px;
+    left: 552px;
+    background-color: rgba(0, 255, 60, 0.649);
+    border-radius: 5px;
+}
+
+h2{
+    font-size: 30px;
+    text-align: center;
+    
+}
+
+#div-hp, #div-atk, #div-def, #div-spcatk, #div-spcdef{
+    width: 42px;
+    height: 35px;
+    margin-right: 4.5px;
+} 
+
+#div-i-hp, #div-i-atk, #div-i-def, #div-i-spcatk, #div-i-spcdef{
+    width: 42px;
+    height: 35px;
+    margin-right: 4.5px;
+} 
+
+#div-stats{
+    display: flex;
+    position: absolute;
+    top: 352px;
+    left: 555px;
+}
+#import-stats{
+    display: flex;
+    position: absolute;
+    top: 392px;
+    left: 555px;
+}
+
+h3{
+    width: inherit;
+    height: inherit;
+    text-align: center;
+    margin-top: 12px;
+    margin-left: 2px;
+    font-size: 12px;
+}
