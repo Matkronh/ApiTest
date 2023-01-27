@@ -4,6 +4,10 @@ const idOne = document.getElementById("div-1")
 const divNext = document.getElementById("div-next")
 const divLast = document.getElementById("div-last")
 const divName = document.getElementById("div-name")
+const searchNameInput = document.getElementById("search-name-input")
+const searchNumberInput = document.getElementById("search-number-input")
+const searchNameButton = document.getElementById("search-name-btn")
+const searchNumberButton = document.getElementById("search-number-btn")
 
 let pokemonNumber = [1,2,3,4,5,6,7,8,9,10]
 let clickNumber = 0
@@ -14,11 +18,13 @@ async function getApi(url){
     return data
 }
 
+/* Rendering of pokemon + image, stats, name */
+
 async function displayPokemonIndex(){
-    
     
 
     const pokemonData = await getApi(`https://pokeapi.co/api/v2/pokemon/?offset=${clickNumber}&limit=1`)
+    
 
         pokemonData.results.forEach(async pokemon => {
             const pokemonDetailData = await getApi(pokemon.url)
@@ -86,13 +92,15 @@ async function displayPokemonIndex(){
             document.getElementById("div-i-def").append(pokeIDef)
             document.getElementById("div-i-spcatk").append(pokeISpcAtk)
             document.getElementById("div-i-spcdef").append(pokeISpcDef)
+
+        
+
             
             idOne.append(pokeFramePic)  
             divName.append(pokeNameText)
             hero.append(pokeFrameElement)
             idArray.push(pokemon.name)
 
-            console.log(pokemon.url)
 
     })
     
@@ -100,6 +108,59 @@ async function displayPokemonIndex(){
 
 
 
+
+/* Extensive search function that works on pokemon number and name (name must be specific) */
+
+pokemonNumberId = 1
+async function displayFullPokemonIndex(){
+
+const pokemonFullData = await getApi (`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1279`)
+        const pokemonNameId = []
+        
+    pokemonFullData.results.forEach(async pokemon =>{
+        pokemonNameId.push({
+            name: pokemon.name,
+            id: pokemonNumberId++
+        })
+    })
+
+
+searchNumberButton.addEventListener("click", function(){
+
+    let searchNumberInputElement = searchNumberInput.value
+
+    for (let i = 0; i<pokemonNameId.length; i++){
+        if (i == searchNumberInputElement){
+            clickNumber = searchNumberInputElement
+            displayPokemonIndex()
+            console.log("fck")
+            removeElementsByClassName("deleteMe")
+            document.getElementById("delete").remove()
+                    }
+                }
+                
+            })
+
+searchNameButton.addEventListener("click", function(){
+
+    let searchNameInputElement = searchNameInput.value
+               
+                
+        for (names of pokemonNameId){
+            if (names.name === searchNameInputElement){
+                clickNumber = names.id - 1
+                displayPokemonIndex()
+                removeElementsByClassName("deleteMe")
+                document.getElementById("delete").remove()
+                    }
+                }               
+    })
+}
+
+displayPokemonIndex()
+displayFullPokemonIndex()
+
+/* Next / Previous Buttons  */
 
 divNext.addEventListener("click", nextTest);
 divLast.addEventListener("click", lastTest);
@@ -123,6 +184,8 @@ function lastTest(){
     console.log(clickNumber)  
 }
 
+/* Utility function to clean up when next pokemon is rendered */
+
 function removeElementsByClassName(className){
     const elements = document.getElementsByClassName(className);
     while (elements.length > 0){
@@ -131,14 +194,9 @@ function removeElementsByClassName(className){
 }
 
 
-displayPokemonIndex()
-
-console.log(idArray)
-
-
 
 /* TO DO:  
-1. Search field bottom right to search for specific pokemon number
+1. Search field bottom right to search for specific pokemon number or name - CHECK
 2. types next to name
 3. sounds?
 4. change pokedex color scheme button
